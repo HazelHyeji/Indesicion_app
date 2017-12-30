@@ -32,8 +32,6 @@ const remove = () => {
 
 const appRoot = document.getElementById('app');
 
-const numbers = [55, 101, 1000];
-
 const render = () => {
     const template = (
         <div>
@@ -42,14 +40,12 @@ const render = () => {
             <p>{app.options.length > 0 ? 'here are your options' : "no options"}</p>
             <p>{app.options.length}</p>
             <ol>
-                <li>{app.options[0]}</li>
-                <li>{app.options[1]}</li>
+                {
+                    app.options.map((option)=>{
+                        return <li key={option}>{option}</li>
+                    })
+                }
             </ol>
-            {
-                numbers.map((number) => {
-                    return <p key={number}>Number: {number}</p>
-                })
-            }
             <form onSubmit={onFormSubmit}>
                 <input type="text" name="option" />
                 <button>Add Option</button>
@@ -59,7 +55,7 @@ const render = () => {
     );
 
     ReactDOM.render(template, appRoot);
-}
+};
 
 render();
 
