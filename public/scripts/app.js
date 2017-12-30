@@ -2,11 +2,6 @@
 
 console.log('App.js is running!');
 
-// JSX - JavaScript XML
-
-//only render the subtitle and p tag if subitle exist - logical and poerator
-//render enw p tag - if options.length > 0 "here are your options" "No options"
-
 var app = {
     title: 'Indecision App',
     subtitles: 'put your life in the hands of a computer',
@@ -30,6 +25,12 @@ var remove = function remove() {
     render();
 };
 
+var onMakeDecision = function onMakeDecision() {
+    var randomNum = Math.floor(Math.random() * app.options.length);
+    var option = app.options[randomNum];
+    alert(option);
+};
+
 var appRoot = document.getElementById('app');
 
 var render = function render() {
@@ -50,11 +51,6 @@ var render = function render() {
             'p',
             null,
             app.options.length > 0 ? 'here are your options' : "no options"
-        ),
-        React.createElement(
-            'p',
-            null,
-            app.options.length
         ),
         React.createElement(
             'ol',
@@ -80,6 +76,11 @@ var render = function render() {
                 'button',
                 { onClick: remove },
                 'Remove all'
+            ),
+            React.createElement(
+                'button',
+                { disabled: app.options.length === 0, onClick: onMakeDecision },
+                'What should I do?'
             )
         )
     );
