@@ -9,14 +9,49 @@ class Person {
         //return 'Hi! ' + this.name;
         return `hi! ${this.name}`;
     }
-    getDescription(){
+    getDescription() {
         return `${this.name} is ${this.age} years old`
     }
 }
 
-//new instances
-const me = new Person('Andrew Mead', 26);
-console.log(me.getDescription());
+class Student extends Person {
+    constructor(name, age, major) {
+        super(name, age); //To access Person!!!
+        this.major = major;
+    }
+    hasMajor() {
+        return !!this.major;
+    }
+    getDescription() {
+        let description = super.getDescription(); //to bring the method from parent class!
 
-const other = new Person();
-console.log(other.getGretting());
+        if (this.hasMajor()) {
+            description += `Their major is ${this.major}`;
+        }
+
+        return description;
+    }
+}
+
+class Traveler extends Person {
+    constructor(name, age, major, home) {
+        super(name, age);
+        this.home = home;
+    }
+    getGretting() {
+        let gretting = super.getGretting();
+
+        if (this.home) {
+            gretting += ` ${this.name}'s home is ${this.home}`
+        }
+        return gretting;
+    }
+}
+
+
+//new instances
+const me = new Traveler('Andrew Mead', 26, 'Computer Science', 'Florid');
+console.log(me.getGretting());
+
+const other = new Traveler(undefined, undefined, "Nowhere");
+console.log(other.getGretting()); 
