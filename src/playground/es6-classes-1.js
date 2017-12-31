@@ -54,4 +54,4 @@ const me = new Traveler('Andrew Mead', 26, 'Computer Science', 'Florid');
 console.log(me.getGretting());
 
 const other = new Traveler(undefined, undefined, "Nowhere");
-console.log(other.getGretting()); 
+console.log(other.getGretting());  
