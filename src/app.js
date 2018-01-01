@@ -1,3 +1,4 @@
+
 class IndecisionApp extends React.Component {
     render() {
         const title = 'Indecision';
@@ -5,9 +6,9 @@ class IndecisionApp extends React.Component {
         const options = ['thing one', 'thing two', 'thing four'];
         return (
             <div>
-                <Header title={title} subtitle={subtitle}/>
+                <Header title={title} subtitle={subtitle} />
                 <Action />
-                <Options options={options}/>
+                <Options options={options} />
                 <AddOptions />
             </div>
         );
@@ -26,19 +27,30 @@ class Header extends React.Component {
 }
 
 class Action extends React.Component {
-    render(){
-        return(
+    handlePick() {
+        alert('handlePick');
+    }
+    render() {
+        return (
             <div>
-                <button>What should I do?</button>
+                <button onClick={this.handlePick}>What should I do?</button>
             </div>
         );
     }
 }
 
-class Options extends React.Component{
+class Options extends React.Component {
+    constructor(props){
+        super(props);
+        this.handleRemoveAll = this.handleRemoveAll.bind(this);
+    }
+    handleRemoveAll() {
+        console.log(this.props.options);
+    }
     render() {
         return (
             <div>
+                <button onClick={this.handleRemoveAll}>Remove All</button>
                 {
                     this.props.options.map((option, index) => <Option key={index} optionText={option}>{option}</Option>)
                 }
@@ -47,8 +59,8 @@ class Options extends React.Component{
     }
 }
 
-class Option extends React.Component{
-    render(){
+class Option extends React.Component {
+    render() {
         return (
             <div>
                 Option : {this.props.optionText}
@@ -57,11 +69,22 @@ class Option extends React.Component{
     }
 }
 
-class AddOptions extends React.Component{ 
-    render(){
-        return(
+class AddOptions extends React.Component {
+    handleAddOption(e){
+        e.preventDefault();
+        const option = e.target.elements.option.value.trim();
+
+        if(option){
+            alert(option);
+        }
+    }
+    render() {
+        return (
             <div>
-                opttions go here
+                <form onSubmit={this.handleAddOption}>
+                    <input type="text" name="option" placeholder="hazel is awesome"/>
+                    <button>Add Option</button>
+                </form>
             </div>
         );
     }
