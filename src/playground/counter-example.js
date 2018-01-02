@@ -20,14 +20,14 @@ class Counter extends React.Component{
             return{
                 count: prevState.count - 1
             }
-        });
+        }); 
     }
     reset() {
         this.setState(()=>{
             return{
                 count: 0
-            }
-        });
+            };
+        })
     }
     render() {
         return (
