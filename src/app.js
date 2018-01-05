@@ -1,7 +1,5 @@
-//import './utils.js';
-import devide, { sqaure, add, subtract } from './utils.js';
+import React from 'react';
+import ReactDOM from 'react-dom';
 
-console.log('app.js is running');
-
-console.log(subtract(10, 100));
-console.log(devide(10, 100));
+const template = React.createElement('p', {}, 'testing 123');
+ReactDOM.render(template, document.getElementById('app'));
