@@ -8,6 +8,7 @@
 .add-option{
     display: flex;
     padding: $m-size;
+    flex-direction: column;
 }
 
 .add-option__input{
@@ -18,4 +19,10 @@
     color: $blue;
     font-family: $josefin;
     padding: $s-size;
+}
+
+@media (min-width: $desktop-breakpoint) {
+    .add-option {
+        flex-direction: row;
+    }
 }
