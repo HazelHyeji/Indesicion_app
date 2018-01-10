@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+html{
+    font-size: 62.5%;
+}
+body{
+    font-family: helvetica, Arial, sans-serif;
+    font-size: $m-size;
+    background-color: $white;
+    font-family: $josefin;
+}
+button{
+    font-family: $josefin;
+    cursor: pointer;
+}
+button:disabled {
+    cursor: default;
+}
+
+
