@@ -14,5 +14,6 @@ button{
 button:disabled {
     cursor: default;
 }
-
-
+.is-active {
+    font-size: $l-size;
+}
