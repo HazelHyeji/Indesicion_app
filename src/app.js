@@ -4,5 +4,5 @@ import IndecisionApp from './components/IndecisionApp';
 import 'normalize.css/normalize.css'
 import './styles/styles.scss';
 
-ReactDOM.render(<IndecisionApp />, document.getElementById('app'));
+ReactDOM.render(<p>this is my bolierplate</p>, document.getElementById('app'));
 
